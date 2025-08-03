@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import { LAMPORTS_PER_SOL } from '@solana/web3.js';
+import { toast } from 'sonner';
 
 const Airdrop = () => {
     const [amount, setAmount] = useState<string>('');
@@ -12,6 +13,22 @@ const Airdrop = () => {
     const wallet = useWallet();
 
     const handleAirdrop = async () => {
+        setIsLoading(true);
+        try {
+
+            if(wallet.publicKey){
+                const airdropAmount = parseFloat(amount) * LAMPORTS_PER_SOL;
+                const signature = await connection.requestAirdrop(wallet.publicKey, airdropAmount);
+                toast.success(`Successfully airdropped ${amount} SOL to your wallet!`);
+                setAmount('');
+                setStatus({type: 'success', message: `Successfully airdropped ${amount} SOL to your wallet!`});
+                setIsLoading(false);
+            }
+        } catch (error) {
+            console.error(error)
+            toast.error("Failed to airdrop")
+            setIsLoading(false);
+        }
     };
 
     const quickAmountButtons = [0.5, 1, 2, 5];
@@ -19,7 +36,6 @@ const Airdrop = () => {
     return (
         <div className='min-h-screen pt-32 pb-12 px-6'>
             <div className='max-w-2xl mx-auto'>
-                {/* Header */}
                 <div className='text-center mb-12'>
                     <h1 className='text-4xl font-bold text-foreground mb-4'>SOL Faucet</h1>
                     <p className='text-lg text-muted-foreground max-w-md mx-auto'>
