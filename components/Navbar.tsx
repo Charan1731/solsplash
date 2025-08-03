@@ -54,14 +54,11 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Desktop Navbar */}
       <div className='fixed top-6 left-6 right-6 z-50'>
         <div className='mx-auto max-w-7xl'>
           <div className="bg-background/95 backdrop-blur-md border border-border rounded-2xl shadow-xl ring-1 ring-black/5">
             <div className='flex justify-between items-center px-8 py-4'>
-              {/* Logo and Navigation */}
               <div className='flex items-center gap-8'>
-                {/* Logo */}
                 <Link href='/' className='group'>
                   <div className='flex items-center gap-3'>
                     <div className='w-8 h-8 bg-white rounded-lg flex items-center justify-center text-black font-bold text-sm shadow-md group-hover:shadow-lg transition-shadow'>
@@ -96,9 +93,7 @@ const Navbar = () => {
                 </nav>
               </div>
 
-              {/* Right Section */}
               <div className="flex items-center gap-4">
-                {/* Balance Display */}
                 {wallet.connected && (
                   <div className='hidden sm:flex items-center gap-3 px-4 py-2 bg-muted/50 rounded-xl border border-border/50'>
                     <div className='w-2 h-2 bg-green-500 rounded-full animate-pulse'></div>
@@ -115,7 +110,6 @@ const Navbar = () => {
                   </div>
                 )}
 
-                {/* Wallet Button */}
                 <div className='wallet-adapter-button-trigger'>
                   {mounted ? (
                     <WalletMultiButton className="!bg-primary !text-primary-foreground hover:!bg-primary/90 !rounded-xl !font-semibold !px-6 !py-3 !h-11 !transition-all !duration-200 !shadow-md hover:!shadow-lg !border-0" />
@@ -126,7 +120,6 @@ const Navbar = () => {
                   )}
                 </div>
 
-                {/* Mobile Menu Button */}
                 <button
                   onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                   className='md:hidden p-2 rounded-lg hover:bg-accent transition-colors'
@@ -141,18 +134,13 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className='fixed inset-0 z-40 md:hidden'>
-          {/* Backdrop */}
           <div 
             className='absolute inset-0 bg-black/50 backdrop-blur-sm'
             onClick={() => setIsMobileMenuOpen(false)}
           />
-          
-          {/* Menu Content */}
           <div className='absolute top-24 left-6 right-6 bg-background/95 backdrop-blur-md border border-border rounded-2xl shadow-xl ring-1 ring-black/5 p-6'>
-            {/* Mobile Balance Display */}
             {wallet.connected && (
               <div className='flex items-center justify-center gap-3 p-4 bg-muted/50 rounded-xl border border-border/50 mb-6'>
                 <div className='w-2 h-2 bg-green-500 rounded-full animate-pulse'></div>
@@ -165,7 +153,6 @@ const Navbar = () => {
               </div>
             )}
 
-            {/* Mobile Navigation */}
             <nav className='space-y-2'>
               {navItems.map((item) => (
                 <Link
