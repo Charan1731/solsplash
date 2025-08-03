@@ -8,7 +8,7 @@ const Footer = () => {
   
   <div className="flex items-center justify-center py-4 px-4">
     <p className="text-xs font-mono tracking-wider animate-gradient-shift bg-[linear-gradient(90deg,#64748b,#8b5cf6,#64748b)] bg-clip-text text-transparent footer-text">
-      <span className="lightning-icon inline-block animate-lightning-pulse">⚡</span> Powered by SOL Faucet <span className="opacity-60">|</span> Securing Digital Frontiers <span className="opacity-60">|</span> 
+      <span className="lightning-icon inline-block animate-lightning-pulse">⚡</span> Powered by SolSplash <span className="opacity-60">|</span> Securing Digital Frontiers <span className="opacity-60">|</span> 
       <a 
         href="https://github.com/Charan1731" 
         target="_blank" 

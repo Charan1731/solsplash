@@ -9,11 +9,20 @@ const SignaturePage = () => {
     const [signedMessage, setSignedMessage] = useState<string>('');
     const [status, setStatus] = useState<{ type: 'success' | 'error' | null; message: string }>({ type: null, message: '' });
     
+    const { publicKey, signMessage} = useWallet();
     const wallet = useWallet();
 
     const handleSignMessage = async () => {
       try {
-        
+        setIsLoading(true);
+        if (!publicKey) throw new Error('Wallet not connected!');
+        if (!signMessage) throw new Error('Wallet does not support message signing!');
+
+        const encoded = new TextEncoder().encode(message);
+        const signature = await signMessage(encoded);
+        setSignedMessage(Buffer.from(signature).toString('base64'));
+        setStatus({ type: 'success', message: 'Message signed successfully!' });
+        setIsLoading(false);
       } catch (error) {
         console.error(error);
         toast.error("Failed to sign message")
@@ -117,7 +126,7 @@ const SignaturePage = () => {
                     <button
                         onClick={handleSignMessage}
                         disabled={isLoading || !wallet.connected || !message.trim()}
-                        className={`w-full py-4 px-6 rounded-xl font-semibold text-lg transition-all duration-200 ${
+                        className={`w-full py-4 px-6 rounded-xl hover:cursor-pointer font-semibold text-lg transition-all duration-200 ${
                             isLoading || !wallet.connected || !message.trim()
                                 ? 'bg-muted text-muted-foreground cursor-not-allowed'
                                 : 'bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-lg active:scale-[0.98]'
@@ -125,7 +134,7 @@ const SignaturePage = () => {
                     >
                         {isLoading ? (
                             <div className='flex items-center justify-center space-x-2'>
-                                <div className='w-5 h-5 border-2 border-current border-t-transparent rounded-full animate-spin'></div>
+                                <div className='w-5 h-5 border-2 border-current hover:cursor-pointer border-t-transparent rounded-full animate-spin'></div>
                                 <span>Signing Message...</span>
                             </div>
                         ) : !wallet.connected ? (

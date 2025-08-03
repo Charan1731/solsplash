@@ -23,11 +23,10 @@ const page = () => {
   return (
     <div className='min-h-screen pt-32 pb-16 px-6'>
       <div className='max-w-6xl mx-auto'>
-        {/* Hero Section */}
         <div className='text-center mb-20'>
           <div className='mb-8'>
             <h1 className='text-5xl md:text-6xl font-bold text-foreground mb-6 tracking-tight'>
-              SOL Faucet
+              SolSplash
             </h1>
             <p className='text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed'>
               A simple, elegant faucet for Solana Devnet. Get free SOL tokens, manage transactions, and interact with the Solana blockchain effortlessly.
@@ -36,19 +35,17 @@ const page = () => {
           
           <div className='flex flex-col sm:flex-row gap-4 justify-center items-center'>
             <Link href="/airdrop">
-              <button className='bg-foreground text-background px-8 py-4 rounded-xl font-semibold text-lg hover:bg-foreground/90 transition-colors shadow-lg min-w-[160px]'>
+              <button className='bg-foreground text-background cursor-pointer px-8 py-4 rounded-xl font-semibold text-lg hover:bg-foreground/90 transition-colors shadow-lg min-w-[160px]'>
                 Get Started
               </button>
             </Link>
             <Link href="/txns">
-              <button className='border-2 border-border px-8 py-4 rounded-xl font-semibold text-lg text-foreground hover:bg-accent transition-colors min-w-[160px]'>
-                View Transactions
+              <button className='border-2 border-border px-8 py-4 rounded-xl cursor-pointer font-semibold text-lg text-foreground hover:bg-accent transition-colors min-w-[160px]'>
+                Make Transactions
               </button>
             </Link>
           </div>
         </div>
-
-        {/* Features Section */}
         <div className='mb-20'>
           <div className='text-center mb-16'>
             <h2 className='text-3xl md:text-4xl font-bold text-foreground mb-4'>
@@ -73,8 +70,6 @@ const page = () => {
             ))}
           </div>
         </div>
-
-        {/* About Section */}
         <div className='text-center mb-20'>
           <div className='max-w-4xl mx-auto'>
             <h2 className='text-3xl md:text-4xl font-bold text-foreground mb-8'>
@@ -108,8 +103,6 @@ const page = () => {
             </div>
           </div>
         </div>
-
-        {/* CTA Section */}
         <div className='text-center p-12 border border-border rounded-2xl bg-muted/20'>
           <h2 className='text-2xl md:text-3xl font-bold text-foreground mb-4'>
             Ready to start building?
@@ -118,7 +111,7 @@ const page = () => {
             Connect your wallet and get free SOL tokens in seconds
           </p>
           <Link href="/airdrop">
-            <button className='bg-foreground text-background px-10 py-4 rounded-xl font-semibold text-lg hover:bg-foreground/90 transition-colors shadow-lg'>
+            <button className='bg-foreground text-background cursor-pointer px-10 py-4 rounded-xl font-semibold text-lg hover:bg-foreground/90 transition-colors shadow-lg'>
               Request Airdrop Now
             </button>
           </Link>

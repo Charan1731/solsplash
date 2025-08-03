@@ -37,7 +37,7 @@ const Airdrop = () => {
         <div className='min-h-screen pt-32 pb-12 px-6'>
             <div className='max-w-2xl mx-auto'>
                 <div className='text-center mb-12'>
-                    <h1 className='text-4xl font-bold text-foreground mb-4'>SOL Faucet</h1>
+                    <h1 className='text-4xl font-bold text-foreground mb-4'>SolSplash</h1>
                     <p className='text-lg text-muted-foreground max-w-md mx-auto'>
                         Get free Solana (SOL) tokens for testing on the Devnet network
                     </p>

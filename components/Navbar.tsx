@@ -56,16 +56,16 @@ const Navbar = () => {
     <>
       <div className='fixed top-6 left-6 right-6 z-50'>
         <div className='mx-auto max-w-7xl'>
-          <div className="bg-background/95 backdrop-blur-md border border-border rounded-2xl shadow-xl ring-1 ring-black/5">
+          <div className="bg-transparent backdrop-blur-xl border-border border-2 rounded-2xl shadow-xl ring-1 ring-black/5">
             <div className='flex justify-between items-center px-8 py-4'>
               <div className='flex items-center gap-8'>
                 <Link href='/' className='group'>
-                  <div className='flex items-center gap-3'>
+                  <div className='flex items-center gap-3 transition-all duration-500 hover:rotate-2'>
                     <div className='w-8 h-8 bg-white rounded-lg flex items-center justify-center text-black font-bold text-sm shadow-md group-hover:shadow-lg transition-shadow'>
                       S
                     </div>
                     <span className='text-xl font-bold text-foreground group-hover:text-primary transition-colors'>
-                      SOL Faucet
+                      SolSplash
                     </span>
                   </div>
                 </Link>
@@ -75,7 +75,7 @@ const Navbar = () => {
                     <Link
                       key={item.href}
                       href={item.href}
-                      className={`relative px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 ${
+                      className={`relative px-4 py-2 rounded-xl text-sm font-medium transition-all duration-500 ${
                         isActive(item.href)
                           ? 'text-primary bg-primary/10 shadow-sm'
                           : 'text-muted-foreground hover:text-foreground hover:bg-accent/50'
